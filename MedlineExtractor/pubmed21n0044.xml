@@ -1,0 +1,128 @@
+<PubmedArticleSet>
+  <PubmedArticle>
+    <MedlineCitation Status="MEDLINE" Owner="NLM">
+      <PMID Version="1">1329680</PMID>
+      <DateCompleted>
+        <Year>1992</Year>
+        <Month>11</Month>
+        <Day>03</Day>
+      </DateCompleted>
+      <DateRevised>
+        <Year>2016</Year>
+        <Month>11</Month>
+        <Day>23</Day>
+      </DateRevised>
+      <Article PubModel="Print">
+        <Journal>
+          <ISSN IssnType="Print">0772-4128</ISSN>
+          <JournalIssue CitedMedium="Print">
+            <Volume>72 Suppl 1</Volume>
+            <PubDate>
+              <Year>1992</Year>
+            </PubDate>
+          </JournalIssue>
+          <Title>Annales de la Societe belge de medecine tropicale</Title>
+          <ISOAbbreviation>Ann Soc Belg Med Trop</ISOAbbreviation>
+        </Journal>
+        <ArticleTitle>Rabbit esophageal cell cytoplasmic pH regulation: role of <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:msup><mml:mtext>Na</mml:mtext><mml:mo>+</mml:mo></mml:msup></mml:math>-<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:msup><mml:mtext>H</mml:mtext><mml:mo>+</mml:mo></mml:msup></mml:math> antiport and <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:msup><mml:mtext>H</mml:mtext><mml:mo>+</mml:mo></mml:msup></mml:math>-dependent <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mtext>H</mml:mtext><mml:mtext>C</mml:mtext><mml:msubsup><mml:mtext>O</mml:mtext><mml:mn>3</mml:mn><mml:mo>-</mml:mo></mml:msubsup></mml:math> transport systems. </ArticleTitle>
+        <Pagination>
+          <MedlinePgn>57-68</MedlinePgn>
+        </Pagination>
+        <AuthorList CompleteYN="Y">
+          <Author ValidYN="Y">
+            <LastName>Laveissière</LastName>
+            <ForeName>C</ForeName>
+            <Initials>C</Initials>
+            <AffiliationInfo>
+              <Affiliation>Institut Pierre Richet/OCCGE, Bouaké, Côte d'lvoire.</Affiliation>
+            </AffiliationInfo>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Meda</LastName>
+            <ForeName>H H</ForeName>
+            <Initials>HH</Initials>
+          </Author>
+        </AuthorList>
+        <Language>fre</Language>
+        <PublicationTypeList>
+          <PublicationType UI="D016428">Journal Article</PublicationType>
+        </PublicationTypeList>
+        <VernacularTitle>La lutte par piégeage contre la maladie du sommeil: pas aussi simple que l'on croit!</VernacularTitle>
+      </Article>
+      <MedlineJournalInfo>
+        <Country>Belgium</Country>
+        <MedlineTA>Ann Soc Belg Med Trop</MedlineTA>
+        <NlmUniqueID>7511864</NlmUniqueID>
+        <ISSNLinking>0772-4128</ISSNLinking>
+      </MedlineJournalInfo>
+      <CitationSubset>IM</CitationSubset>
+      <MeshHeadingList>
+        <MeshHeading>
+          <DescriptorName UI="D000818" MajorTopicYN="N">Animals</DescriptorName>
+        </MeshHeading>
+        <MeshHeading>
+          <DescriptorName UI="D001294" MajorTopicYN="N">Attitude to Health</DescriptorName>
+        </MeshHeading>
+        <MeshHeading>
+          <DescriptorName UI="D003256" MajorTopicYN="N">Community Participation</DescriptorName>
+        </MeshHeading>
+        <MeshHeading>
+          <DescriptorName UI="D007560" MajorTopicYN="N">Cote d'Ivoire</DescriptorName>
+        </MeshHeading>
+        <MeshHeading>
+          <DescriptorName UI="D003469" MajorTopicYN="N">Culture</DescriptorName>
+        </MeshHeading>
+        <MeshHeading>
+          <DescriptorName UI="D005006" MajorTopicYN="N">Ethnic Groups</DescriptorName>
+        </MeshHeading>
+        <MeshHeading>
+          <DescriptorName UI="D005260" MajorTopicYN="N">Female</DescriptorName>
+        </MeshHeading>
+        <MeshHeading>
+          <DescriptorName UI="D006801" MajorTopicYN="N">Humans</DescriptorName>
+        </MeshHeading>
+        <MeshHeading>
+          <DescriptorName UI="D007300" MajorTopicYN="N">Insect Control</DescriptorName>
+          <QualifierName UI="Q000379" MajorTopicYN="Y">methods</QualifierName>
+        </MeshHeading>
+        <MeshHeading>
+          <DescriptorName UI="D008297" MajorTopicYN="N">Male</DescriptorName>
+        </MeshHeading>
+        <MeshHeading>
+          <DescriptorName UI="D014353" MajorTopicYN="N">Trypanosomiasis, African</DescriptorName>
+          <QualifierName UI="Q000517" MajorTopicYN="Y">prevention &amp; control</QualifierName>
+        </MeshHeading>
+        <MeshHeading>
+          <DescriptorName UI="D014370" MajorTopicYN="Y">Tsetse Flies</DescriptorName>
+        </MeshHeading>
+      </MeshHeadingList>
+    </MedlineCitation>
+    <PubmedData>
+      <History>
+        <PubMedPubDate PubStatus="pubmed">
+          <Year>1992</Year>
+          <Month>1</Month>
+          <Day>1</Day>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="medline">
+          <Year>1992</Year>
+          <Month>1</Month>
+          <Day>1</Day>
+          <Hour>0</Hour>
+          <Minute>1</Minute>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="entrez">
+          <Year>1992</Year>
+          <Month>1</Month>
+          <Day>1</Day>
+          <Hour>0</Hour>
+          <Minute>0</Minute>
+        </PubMedPubDate>
+      </History>
+      <PublicationStatus>ppublish</PublicationStatus>
+      <ArticleIdList>
+        <ArticleId IdType="pubmed">1329680</ArticleId>
+      </ArticleIdList>
+    </PubmedData>
+  </PubmedArticle>
+</PubmedArticleSet>
