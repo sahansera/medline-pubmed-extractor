@@ -11,8 +11,8 @@ namespace MedlineExtractor
     {
         private const string InputFolder = "";
         private const string OutputFolder = "";
-        private const int Start = 7;
-        private const int End = 1062; //1062
+        private const int Start = 1;
+        private const int End = 1062;
 
         static void Main(string[] args)
         {
@@ -25,57 +25,11 @@ namespace MedlineExtractor
 
         private static void Process(string fileName)
         {
-            CleanDocument(fileName);
-            
-            // TODO: Might not need this
-            // using (var fileStream = File.Open(fullPath, FileMode.Open, FileAccess.Read, FileShare.Read))
-            // {
-            //     var serializer = new XmlSerializer(typeof(PubmedArticleSet));
-            //     var myDocument = (PubmedArticleSet)serializer.Deserialize(fileStream);
-            //
-            //     foreach(var item in myDocument)
-            //     {
-            //         // Console.WriteLine($"PMID: {item.MedlineCitation.PMID}");
-            //         // Console.WriteLine($"Title: {item.MedlineCitation.Article.ArticleTitle}");
-            //         // Console.WriteLine($"Country: {item.MedlineCitation.MedlineJournalInfo.Country}");
-            //         // Console.WriteLine($"Journal Name: {item.MedlineCitation.Article.Journal.Title}");
-            //         // Console.WriteLine($"Year: {item.MedlineCitation.Article.Journal.JournalIssue.PubDate.Year}");
-            //         // Console.WriteLine($"Abstract: {item.MedlineCitation.Article.Abstract?.AbstractText}");
-            //
-            //         Console.WriteLine($"Currently processing PMID: {item.MedlineCitation.PMID} & File: {fileName}");
-            //
-            //         var headings = (item.MedlineCitation.MeshHeadingList).Select(x => x.DescriptorName).ToList();
-            //         var strHeadings = string.Join(";", headings);
-            //
-            //         var authors = item.MedlineCitation.Article.AuthorList.Select(x => x.ToString());
-            //         var strAuthors = string.Join(";", authors);
-            //
-            //         // Console.WriteLine(strHeadings);
-            //         // Console.WriteLine(strAuthors);
-            //         
-            //         outputSet.Add(new Output
-            //         {
-            //             PubMedId = item.MedlineCitation.PMID,
-            //             Title = item.MedlineCitation.Article.ArticleTitle,
-            //             Abstract = item.MedlineCitation.Article.Abstract?.AbstractText,
-            //             Country = item.MedlineCitation.MedlineJournalInfo.Country,
-            //             JournalName = item.MedlineCitation.Article.Journal.Title,
-            //             Year = item.MedlineCitation.Article.Journal.JournalIssue.PubDate.Year,
-            //             Mesh = strHeadings,
-            //             Authors = strAuthors
-            //         });
-            //     }
-            //     Write(outputSet, fileName);
-            // }
-        }
-
-        private static void CleanDocument(string fileName)
-        {
             var fullPath = $"{InputFolder}{fileName}.xml";
             var doc = XDocument.Load(fullPath);
-            var reportElements = doc.Descendants("PubmedArticle");
+            var articleElements = doc.Descendants("PubmedArticle");
 
-            var reports = reportElements
+            var articles = articleElements
                 .Select(e =>
                 {
                     var medlineCitation = e.Element("MedlineCitation");
@@ -84,10 +38,10 @@ namespace MedlineExtractor
                     {
                         MedlineCitation = new MedlineCitation
                         {
-                            PMID = medlineCitation?.Element("PMID")?.Value,
+                            PMID = medlineCitation.Element("PMID")?.Value,
                             MedlineJournalInfo = new MedlineJournalInfo
                             {
-                                Country = medlineCitation?.Element("MedlineJournalInfo")?.Element("Country")?.Value
+                                Country = medlineCitation.Element("MedlineJournalInfo")?.Element("Country")?.Value
                             },
                             Article = new Article
                             {
@@ -120,7 +74,7 @@ namespace MedlineExtractor
                         }
                     };
                 });
-            var reps = reports.ToList();
+            var reps = articles.ToList();
             var output = reps.Select(article => new Output
             {
                 PubMedId = article.MedlineCitation.PMID,

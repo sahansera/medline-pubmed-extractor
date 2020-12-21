@@ -22,8 +22,6 @@ namespace MedlineExtractor.Models
         public List<MeshHeading>? MeshHeadingList { get; set; }
     }
 
-    // public class MeshHeadingList : List<MeshHeading> { }
-
     public class MeshHeading
     {
         public string DescriptorName { get; set; }
@@ -76,8 +74,6 @@ namespace MedlineExtractor.Models
             return AbstractText ?? "";
         }
     }
-
-    // public class AuthorList : List<Author> { }
 
     public class Author
     {
