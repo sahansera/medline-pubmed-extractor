@@ -19,7 +19,7 @@ namespace MedlineExtractor.Models
         
         public MedlineJournalInfo MedlineJournalInfo { get; set; }
 
-        public List<MeshHeading>? MeshHeadingList { get; set; }
+        public List<MeshHeading> MeshHeadingList { get; set; }
     }
 
     public class MeshHeading
@@ -60,9 +60,9 @@ namespace MedlineExtractor.Models
         
         public Journal Journal { get; set; }
 
-        public List<Author>? AuthorList { get; set; }
+        public List<Author> AuthorList { get; set; }
 
-        public Abstract? Abstract { get; set; }
+        public Abstract Abstract { get; set; }
     }
 
     public class Abstract
