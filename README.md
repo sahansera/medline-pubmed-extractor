@@ -1,5 +1,5 @@
-# Medline Pubmed Extractor
-A simple console application that will process a given Medline Pubmed dataset and generate TSV files with given columns.
+# Medline Pubmed Data Extractor
+A simple console application that will process a given Medline Pubmed dataset (XML) and generate TSV files with given attributes.
 
 ## Introduction
 This .NET 5 console application will iterate through a given set of Medline Pubmed dataset from a given starting point.
@@ -7,6 +7,17 @@ This .NET 5 console application will iterate through a given set of Medline Pubm
 Please note that this is a naive implementation using LINQ to XML ibrary. I have tested this for current latest as of `22/12/2020` which contains `33M` records.
 
 The official Pubmed baseline dataset can be downloaded from [here](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline/).
+
+Currently, the application extracts the following columns:
+
+- Id
+- Title
+- Abstract
+- Country
+- JournalName
+- Year
+- Mesh
+- Authors
 
 ## Usage
 
@@ -29,7 +40,9 @@ Many improvements can be done as follows.
  - [ ] Performance improvements
  - [ ] Documentation
  - [ ] Gracefully handle errors/nulls
- - [ ] Break the LINQ query to smaller chunks
+ - [x] Break the LINQ query to smaller chunks
+ - [ ] Add unit tests
+ - [ ] Support multiple output formats
 
 ## Related Blog Post
 TBD

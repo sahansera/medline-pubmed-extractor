@@ -50,13 +50,14 @@ namespace MedlineExtractor
             var articleElements = doc.Descendants(nameof(PubmedArticle));
 
             var outputs = new List<Output>();
-            foreach (var article in articleElements)
+            foreach (var record in articleElements)
             {
-                var medlineCitation = article.Element(nameof(MedlineCitation));
+                var medlineCitation = record.Element(nameof(MedlineCitation));
                 if (medlineCitation == null) continue;
                 
                 Console.WriteLine($"Processing {medlineCitation.Element(nameof(MedlineCitation.PMID))?.Value} in {fileName}");
 
+                var article = medlineCitation.Element(nameof(Article));
                 var authorList = medlineCitation
                     .Element(nameof(Article))
                     ?.Element(nameof(Article.AuthorList))?.Descendants(nameof(Author)).Select(author =>
@@ -77,19 +78,16 @@ namespace MedlineExtractor
                 {
                     PubMedId = medlineCitation.Element(nameof(MedlineCitation.PMID))?.Value,
                     
-                    Title = medlineCitation.Element(nameof(Article))
-                        ?.Element(nameof(Article.ArticleTitle))?.Value,
+                    Title = article?.Element(nameof(Article.ArticleTitle))?.Value,
                     
-                    Abstract = medlineCitation.Element(nameof(Article))?.Element(nameof(Abstract))
-                        ?.Element(nameof(Abstract.AbstractText))?.Value,
+                    Abstract = article?.Element(nameof(Abstract))?.Element(nameof(Abstract.AbstractText))?.Value,
                     
                     Country = medlineCitation.Element(nameof(MedlineJournalInfo))
                         ?.Element(nameof(MedlineJournalInfo.Country))?.Value,
                     
-                    JournalName = medlineCitation.Element(nameof(Article))?.Element(nameof(Journal))
-                        ?.Element(nameof(Journal.Title))?.Value,
+                    JournalName = article?.Element(nameof(Journal))?.Element(nameof(Journal.Title))?.Value,
                     
-                    Year = medlineCitation.Element(nameof(Article))?.Element(nameof(Journal))
+                    Year = article?.Element(nameof(Journal))
                         ?.Element(nameof(Journal.JournalIssue))
                         ?.Element(nameof(Journal.JournalIssue.PubDate))
                         ?.Element(nameof(Journal.JournalIssue.PubDate.Year))?.Value,
