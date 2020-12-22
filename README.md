@@ -1,5 +1,5 @@
 # Medline Pubmed Extractor
-A simple console application that will go through a given Medline Pubmed dataset.
+A simple console application that will process a given Medline Pubmed dataset and generate TSV files with given columns.
 
 ## Introduction
 This .NET 5 console application will iterate through a given set of Medline Pubmed dataset from a given starting point.
@@ -18,13 +18,14 @@ The official Pubmed baseline dataset can be downloaded from [here](https://ftp.n
 or if you are using the console,
 
 ```bash
-dotnet run
+dotnet build
+dotnet MedlineExtractor.dll "path/to/input/folder" "path/to/out/folder"
 ```
 
 ## Improvements
 Many improvements can be done as follows.
 
- - [ ] Make the file paths configurable (i.e. - IConfiguration)
+ - [x] Make the file paths configurable
  - [ ] Performance improvements
  - [ ] Documentation
  - [ ] Gracefully handle errors/nulls
