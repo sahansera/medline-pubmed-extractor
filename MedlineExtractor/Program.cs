@@ -9,67 +9,79 @@ namespace MedlineExtractor
 {
     class Program
     {
-        private const string InputFolder = "";
-        private const string OutputFolder = "";
-        private const int Start = 1;
-        private const int End = 1062;
+        // Input and Output folder paths
+        private static string _inputFolder = "";
+        private static string _outputFolder = "";
+        
+        // Start and End of the file sequence
+        private const int Start = 44;
+        private const int End = 44;
+        
+        // File name prefix
+        private const string Prefix = "pubmed21n";
 
         static void Main(string[] args)
         {
+            if (args.Length > 0)
+            {
+                _inputFolder = args[0] ?? "";
+                _outputFolder = args[1] ?? "";
+            }
+            
             for (var i = Start; i <= End; i++)
             {
                 var filename = i.ToString("0000");
-                Process($"pubmed21n{filename}");
+                Process($"{Prefix}{filename}");
             }
         }
 
         private static void Process(string fileName)
         {
-            var fullPath = $"{InputFolder}{fileName}.xml";
+            var fullPath = $"{_inputFolder}{fileName}.xml";
             var doc = XDocument.Load(fullPath);
-            var articleElements = doc.Descendants("PubmedArticle");
+            var articleElements = doc.Descendants(nameof(PubmedArticle));
 
             var articles = articleElements
                 .Select(e =>
                 {
-                    var medlineCitation = e.Element("MedlineCitation");
-                    Console.WriteLine($"Processing {medlineCitation.Element("PMID")?.Value} in {fileName}");
+                    var medlineCitation = e.Element(nameof(MedlineCitation));
+                    Console.WriteLine($"Processing {medlineCitation.Element(nameof(MedlineCitation.PMID))?.Value} in {fileName}");
                     return new PubmedArticle
                     {
                         MedlineCitation = new MedlineCitation
                         {
-                            PMID = medlineCitation.Element("PMID")?.Value,
+                            PMID = medlineCitation.Element(nameof(MedlineCitation.PMID))?.Value,
                             MedlineJournalInfo = new MedlineJournalInfo
                             {
-                                Country = medlineCitation.Element("MedlineJournalInfo")?.Element("Country")?.Value
+                                Country = medlineCitation.Element(nameof(MedlineJournalInfo))?.Element(nameof(MedlineJournalInfo.Country))?.Value
                             },
                             Article = new Article
                             {
-                                ArticleTitle = medlineCitation.Element("Article")?.Element("ArticleTitle")?.Value,
+                                ArticleTitle = medlineCitation.Element(nameof(Article))?.Element(nameof(Article.ArticleTitle))?.Value,
                                 Abstract = new Abstract
                                 {
-                                    AbstractText = medlineCitation.Element("Article")?.Element("Abstract")?.Element("AbstractText")?.Value
+                                    AbstractText = medlineCitation.Element(nameof(Article))?.Element(nameof(Abstract))?.Element(nameof(Abstract.AbstractText))?.Value
                                 },
                                 Journal = new Journal
                                 {
-                                    Title = medlineCitation.Element("Article")?.Element("Journal")?.Element("Title")?.Value,
+                                    Title = medlineCitation.Element(nameof(Article))?.Element(nameof(Journal))?.Element(nameof(Journal.Title))?.Value,
                                     JournalIssue = new JournalIssue
                                     {
                                         PubDate = new PubDate
                                         {
-                                            Year = medlineCitation.Element("Article")?.Element("Journal")?.Element("JournalIssue")?.Element("PubDate")?.Element("Year")?.Value
+                                            Year = medlineCitation.Element(nameof(Article))?.Element(nameof(Journal))?.Element(nameof(Journal.JournalIssue))?.Element(nameof(Journal.JournalIssue.PubDate))?.Element(nameof(Journal.JournalIssue.PubDate.Year))?.Value
                                         }
                                     },
                                 },
-                                AuthorList = medlineCitation.Element("Article")?.Element("AuthorList")?.Descendants("Author").Select(author => new Author
+                                AuthorList = medlineCitation.Element(nameof(Article))?.Element(nameof(Article.AuthorList))?.Descendants(nameof(Author)).Select(author => new Author
                                 {
-                                    ForeName = author.Element("ForeName")?.Value,
-                                    LastName = author.Element("LastName")?.Value
+                                    ForeName = author.Element(nameof(Author.ForeName))?.Value,
+                                    LastName = author.Element(nameof(Author.LastName))?.Value
                                 }).ToList()
                             },
-                            MeshHeadingList = medlineCitation.Element("MeshHeadingList")?.Descendants("MeshHeading").Select(mesh => new MeshHeading
+                            MeshHeadingList = medlineCitation.Element(nameof(MedlineCitation.MeshHeadingList))?.Descendants(nameof(MeshHeading)).Select(mesh => new MeshHeading
                             {
-                                DescriptorName = mesh.Element("DescriptorName")?.Value
+                                DescriptorName = mesh.Element(nameof(MeshHeading.DescriptorName))?.Value
                             }).ToList()
                         }
                     };
@@ -95,7 +107,7 @@ namespace MedlineExtractor
         {
             var headings = new[]{"Id", "Title", "Abstract", "Country", "JournalName", "Year", "Mesh", "Authors"};
             
-            using (var outputFile = new StreamWriter(Path.Combine(OutputFolder, $"{fileName}.tsv")))
+            using (var outputFile = new StreamWriter(Path.Combine(_outputFolder, $"{fileName}.tsv")))
             {
                 outputFile.WriteLine(string.Join("\t", headings));
                 foreach (var line in output)
