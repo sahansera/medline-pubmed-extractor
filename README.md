@@ -10,14 +10,16 @@ The official Pubmed baseline dataset can be downloaded from [here](https://ftp.n
 
 Currently, the application extracts the following columns:
 
-- Id
-- Title
-- Abstract
-- Country
-- JournalName
-- Year
-- Mesh
-- Authors
+| Pubmed Attr.                      | Output Attr. | Example                                                                                                                                                        |
+|-----------------------------------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| PMID                              | ID           | 1329680                                                                                                                                                        |
+| ArticleTitle                      | Title        | Rabbit esophageal cell cytoplasmic pH regulation: role of Na+-H+ antiport and H+-dependent HCO3- transport systems.                                            |
+| Abstract                          | Abstract     | N/A                                                                                                                                                            |
+| MedlineJournalInfo.Country        | Country      | Belgium                                                                                                                                                        |
+| Journal.Title                     | JournalName  | Annales de la Societe belge de medecine tropicale                                                                                                              |
+| Journal.JournalIssue.PubDate.Year | Year         | 1992                                                                                                                                                           |
+| MeshHeadingList                   | Mesh         | Animals;Attitude to Health;Community Participation;Cote d'Ivoire;Culture;Ethnic Groups;Female;Humans;Insect Control;Male;Trypanosomiasis, African;Tsetse Flies |
+| Article.AuthorList                | Authors      | C Laveissière;H H Meda                                                                                                                                         |
 
 ## Usage
 
