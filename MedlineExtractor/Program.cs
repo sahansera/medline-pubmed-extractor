@@ -14,8 +14,8 @@ namespace MedlineExtractor
         private static string _outputFolder = "";
         
         // Start and End of the file sequence
-        private const int Start = 44;
-        private const int End = 44;
+        private const int Start = 1;
+        private const int End = 1062;
         
         // File name prefix
         private const string Prefix = "pubmed21n";

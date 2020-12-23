@@ -34,8 +34,21 @@ or if you are using the console,
 
 ```bash
 dotnet build
-dotnet MedlineExtractor.dll "path/to/input/folder" "path/to/out/folder"
+dotnet run -p MedlineExtractor "path/to/input/folder" "path/to/out/folder"
 ```
+
+## Running the sample
+
+Change the following parameters in Program.cs. This sample XML is from 44th file of the sequence and contains an example with MathML tags.
+
+```csharp
+...
+private const int Start = 44;
+private const int End = 44;
+...
+```
+
+You could also specify where to write the output TSV file. By default it will write to the `Debug` folder.
 
 ## Improvements
 Many improvements can be done as follows.
