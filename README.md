@@ -49,6 +49,10 @@ Many improvements can be done as follows.
 ## Related Blog Post
 TBD
 
+## Limitations
+
+ - This application does not support MathML tags embedded in ArticleTitle. We simply parse it as plain text for now.
+
 ## Questions? Bugs? Suggestions for Improvement?
 Having any issues or troubles getting started? [Get in touch with me](https://sahansera.dev/contact/) 
 
