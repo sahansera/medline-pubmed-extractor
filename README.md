@@ -1,14 +1,16 @@
+<img src="img/readme-cover.jpg" alt="medline pubmed banner" align="center" />
+
 # Medline Pubmed Data Extractor
 A simple console application that will process a given Medline Pubmed dataset (XML) and generate TSV files with given attributes.
 
 ## Introduction
 This .NET 5 console application will iterate through a given set of Medline Pubmed dataset from a given starting point.
 
-Please note that this is a naive implementation using LINQ to XML ibrary. I have tested this for current latest as of `22/12/2020` which contains `33M` records.
+Please note that this is a naive implementation using LINQ to XML ibrary. I have tested this for current latest as of `22/12/2020` which contains `33M` records. You can expect it to finish processing all records within an hour.
 
 The official Pubmed baseline dataset can be downloaded from [here](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline/).
 
-Currently, the application extracts the following columns:
+Currently, the application extracts the following attributes:
 
 | Pubmed Attr.                      | Output Attr. | Example                                                                                                                                                        |
 |-----------------------------------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -25,8 +27,8 @@ Currently, the application extracts the following columns:
 
 1. Clone this repo, 
 2. Open in VS 2019 or Rider
-3. Configure the input and output paths
-4. Hit F5.
+3. Configure the input and output paths (either passing them as command line args or manually)
+4. Hit F5
 
 or if you are using the console,
 
@@ -44,7 +46,7 @@ Many improvements can be done as follows.
  - [ ] Gracefully handle errors/nulls
  - [x] Break the LINQ query to smaller chunks
  - [ ] Add unit tests
- - [ ] Support multiple output formats
+ - [ ] Support multiple output formats (eg. JSON, CSV etc.)
 
 ## Related Blog Post
 TBD
